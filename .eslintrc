@@ -1,0 +1,18 @@
+{
+  "extends": "eslint-config-ali/react",
+  "parser": "babel-eslint",
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "GLOBAL": true,
+    "AMap": true
+  },
+  "rules": {
+    "max-len": 0,
+    "no-shadow": 0,
+    "no-restricted-globals": 0,
+    "react/jsx-no-target-blank": 0,
+    "react/no-array-index-key": 0
+  }
+}
