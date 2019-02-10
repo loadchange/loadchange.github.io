@@ -14,6 +14,8 @@ const Portfolio = lazy(() => import('./components/portfolio'));
 const Contact = lazy(() => import('./components/contact'));
 const NotFound = lazy(() => import('./components/404'));
 
+const Article = lazy(() => import('./components/article'));
+
 class App extends React.Component {
   get route() {
     return [
@@ -23,6 +25,7 @@ class App extends React.Component {
       { path: '/single', component: props => (<Single {...props} />) },
       { path: '/portfolio', component: props => (<Portfolio {...props} />) },
       { path: '/contact', component: props => (<Contact {...props} />) },
+      { path: '/:year/:month/:date/:title', component: props => (<Article {...props} />) },
       { component: props => (<NotFound {...props} />) },
     ].map((item, index) => <Route key={`route-${index}`} {...item} />);
   }

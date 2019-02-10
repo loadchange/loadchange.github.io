@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js --open",
-    "build": "cross-env NODE_ENV=production webpack --profile --display-modules --config build/webpack.prod.conf.js && node build/copy.dist.js",
+    "build": "cross-env NODE_ENV=production webpack --profile --display-modules --config build/webpack.prod.conf.js && node build/generate.article.conf.js",
     "analyzer": "cross-env NODE_ENV=production webpack --config build/webpack.analyzer.conf.js"
   },
   "author": "yanmin.wang@ele.me",
@@ -38,6 +38,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "react-markdown-loader": "^1.1.14",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.2.1",

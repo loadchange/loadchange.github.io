@@ -1,0 +1,31 @@
+{
+  "success": true,
+  "total": 32,
+  "size": 15,
+  "listConfig": [
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json",
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json",
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json",
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json",
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json",
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json",
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json",
+    "article-list-1.json",
+    "article-list-2.json",
+    "article-list-3.json"
+  ]
+}

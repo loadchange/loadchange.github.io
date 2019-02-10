@@ -1,5 +1,7 @@
 import React from 'react';
+import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import Pagination from '../pagination'
 
 import GridImg1 from '../../images/grid-img1.jpg';
 import GridImg2 from '../../images/grid-img2.jpg';
@@ -7,11 +9,39 @@ import GridImg3 from '../../images/grid-img3.jpg';
 
 class Services extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      listConfig: [],
+      size: 15,
+      total: 0,
+      currentPage: 1,
+      articleLists: []
+    };
+  }
+
+  componentDidMount() {
+    this.getArticleConfig();
+  }
+
+  getArticleConfig() {
+    Axios.get('/dist/data/article-config.json').then(res => {
+      this.setState({ ...res.data }, () => this.getPageList());
+    });
+  }
+
+  getPageList() {
+    const { listConfig, currentPage } = this.state;
+    Axios.get(`/dist/data/${listConfig[currentPage - 1]}`)
+      .then(res => this.setState({ articleLists: res.data.articleLists }));
+  }
+
   getImg() {
     return [GridImg1, GridImg2, GridImg3][Math.floor(Math.random() * 3)]
   }
 
   render() {
+    const { listConfig, size, total, currentPage, articleLists } = this.state;
     return (
       <div className="services content">
         <div className="about-data">
@@ -25,27 +55,39 @@ class Services extends React.Component {
             实施手段是政治、经济、文化、社会、生态文明五位一体建设。
           </p>
           {
-            Array.apply(null, { length: 5 }).map((_, row) => (
+            Array.apply(null, { length: Math.ceil(articleLists.length / 3) }).map((_, row) => (
               <div className="top-grids services-grids" key={`grids-${row}`}>
                 <div className="section group">
                   {
-                    Array.apply(null, { length: 3 }).map((_, item) => (
-                      <div className="grid_1_of_3 images_1_of_3 top_grid" key={`grids-${row}-item-${item}`}>
-                        <div className="topgrid-desc">
-                          <h3>基本路线</h3>
-                          <p>
-                            全面把握群众路线与实现中国梦的内在联系：群众路线体现了党伟大的中国梦、人民梦！伟大的中国梦、人民梦！的性质与宗旨，....
-                            <Link to="/single">查看全部</Link>
-                          </p>
+                    Array.apply(null, { length: 3 }).map((_, idx) => {
+                      const index = row * 3 + idx;
+                      if (index + 1 > articleLists.length) return null;
+                      const article = articleLists[index];
+                      return (
+                        <div className="grid_1_of_3 images_1_of_3 top_grid" key={`grids-${row}-item-${idx}`}>
+                          <div className="topgrid-desc">
+                            <h3>{article.title}</h3>
+                            <p>
+                              {article.describe}
+                              <Link to={article.link}>查看全部</Link>
+                            </p>
+                          </div>
+                          <img src={article.thumbnail} />
                         </div>
-                        <img src={this.getImg()} />
-                      </div>
-                    ))
+                      )
+                    })
                   }
                 </div>
               </div>
             ))
           }
+          <Pagination
+            pageCount={listConfig.length}
+            pageSize={size}
+            total={total}
+            currentPage={currentPage}
+            onClick={currentPage => this.setState({ currentPage }, () => this.getPageList())}
+          />
         </div>
       </div>
     )
