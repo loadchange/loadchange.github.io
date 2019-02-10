@@ -25,7 +25,7 @@ class App extends React.Component {
       { path: '/single', component: props => (<Single {...props} />) },
       { path: '/portfolio', component: props => (<Portfolio {...props} />) },
       { path: '/contact', component: props => (<Contact {...props} />) },
-      { path: '/:year/:month/:date/:title', component: props => (<Article {...props} />) },
+      { path: '/:year/:month/:date-:title', component: props => (<Article {...props} />) },
       { component: props => (<NotFound {...props} />) },
     ].map((item, index) => <Route key={`route-${index}`} {...item} />);
   }
