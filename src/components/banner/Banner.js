@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import C from 'classnames';
 
 import Slide1 from '../../images/slide1.jpg';
@@ -42,6 +41,10 @@ class Banner extends React.Component {
         slides.style.width = `${slides.children.length * offsetWidth}px`;
       });
     });
+    if (this.timer) {
+      clearInterval(this.timer);
+    }
+    this.timer = setInterval(() => this.turn(true), 3500);
   }
 
   turn(next) {

@@ -18,9 +18,6 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.md$/,
-      loader: 'babel-loader?cacheDirectory!react-markdown-loader'
-    }, {
       test: /\.(css|scss)$/,
       use: [
         isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

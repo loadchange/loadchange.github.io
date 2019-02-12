@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter, Route, Switch, } from 'react-router-dom';
+import Loading from './components/Loading'
 import Layout from './components/layout'
 
 import './style/main.scss'
@@ -34,7 +35,7 @@ class App extends React.Component {
     return (
       <HashRouter>
         <Layout>
-          <Suspense fallback="Loading...">
+          <Suspense fallback={<Loading />}>
             <Switch>
               {this.route}
             </Switch>

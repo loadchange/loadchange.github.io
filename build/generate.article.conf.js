@@ -4,6 +4,8 @@ const path = require('path');
 const readline = require('readline');
 const articleDir = path.join(__dirname, '..', 'article')
 const article = [];
+const CONF_BLOCK_TAG = '---'
+const STATE = { NOT_STARTED: -1, RECORD: 1, END: 0 }
 var walker;
 
 walker = walk.walk(articleDir, {});
@@ -14,8 +16,8 @@ walker.on("names", (root, nodeNamesArray) => {
 
 walker.on("file", (root, fileStats, next) => {
   const filePath = root + '/' + fileStats.name;
-  fs.readFile(fileStats.name, function () {
-    const link = filePath.match(new RegExp(`${articleDir}(.*).md$`))
+  fs.readFile(fileStats.name, () => {
+    const link = filePath.match(new RegExp(`${articleDir}(.*).txt$`))
     if (link && link.length === 2) {
       const fRead = fs.createReadStream(filePath);
       const objReadline = readline.createInterface({
@@ -23,28 +25,30 @@ walker.on("file", (root, fileStats, next) => {
         terminal: true
       });
       const item = { link: link[1] };
+      const frontMatter = []
+      let status = STATE.NOT_STARTED;
       objReadline.on('line', (line) => {
-        const m1 = line.match(/^# (.*)/)
-        const m2 = line.match(new RegExp(`<div class="describe">(.*)</div>`))
-        const m3 = line.match(new RegExp(`<img class="thumbnail" src="(.*)" />`))
-        if (!item.title && m1) {
-          item.title = m1[1]
-        }
-        if (!item.describe && m2) {
-          item.describe = m2[1].length > 55 ? m2[1].substring(0, 55) + '....' : m2[1]
-        }
-        if (!item.thumbnail && m3) {
-          item.thumbnail = m3[1]
-        }
-        if (item.title && item.describe && item.thumbnail) {
-          objReadline.close();
+        if (line.trim() === CONF_BLOCK_TAG) {
+          status = status === STATE.NOT_STARTED ? STATE.RECORD : STATE.END;
+          if (status === STATE.END) {
+            objReadline.close();
+          }
+        } else {
+          if (status === STATE.RECORD) {
+            frontMatter.push(line);
+          }
         }
       });
-
-
-      article.push(item)
+      objReadline.on('close', () => {
+        const json = JSON.parse(frontMatter.join(''));
+        if (json.describe && json.describe.length > 55) {
+          json.describe = json.describe.substring(0, 55) + '....';
+        }
+        article.push(Object.assign({}, item, json));
+        next();
+      });
     }
-    next();
+
   });
 });
 
@@ -82,25 +86,12 @@ function writeConf() {
     }
     const fileName = `article-list-${(i + 1)}.json`;
     listConfig.push(fileName);
-    fs.writeFileSync(`${distPath}/${fileName}`, JSON.stringify(json), (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(`article-list-${(i + 1)}.json success`);
-      }
-    });
+    fs.writeFileSync(`${distPath}/${fileName}`, JSON.stringify(json));
   }
-  const results = {
-    "success": true,
+  fs.writeFileSync(`${distPath}/article-config.json`, JSON.stringify({
+    success: true,
     total,
     size,
     listConfig
-  }
-  fs.writeFileSync(`${distPath}/article-config.json`, JSON.stringify(results), (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('article-config.json success');
-    }
-  });
+  }));
 }

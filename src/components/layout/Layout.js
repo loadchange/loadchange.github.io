@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import C from 'classnames';
+import Loading from '../Loading'
 
 const Banner = lazy(() => import('../banner'));
 
@@ -45,7 +46,7 @@ class Layout extends React.Component {
                 </nav>
                 {
                   location.pathname === '/' && (
-                    <Suspense fallback="Loading..."><Banner /></Suspense>
+                    <Suspense fallback={<Loading />}><Banner /></Suspense>
                   )
                 }
               </div>
