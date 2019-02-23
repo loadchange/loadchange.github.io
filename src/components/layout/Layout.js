@@ -41,7 +41,7 @@ class Layout extends React.Component {
                     </li>
                     <li><Link to="/portfolio">组合</Link></li>
                     <li><Link to="/single">职业</Link></li>
-                    <li><Link to="/contact">联系</Link></li>
+                    <li><Link to="/calendar">黄历</Link></li>
                   </ul>
                 </nav>
                 {

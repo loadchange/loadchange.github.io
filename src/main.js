@@ -12,7 +12,7 @@ const About = lazy(() => import('./components/about'));
 const Services = lazy(() => import('./components/services'));
 const Single = lazy(() => import('./components/single'));
 const Portfolio = lazy(() => import('./components/portfolio'));
-const Contact = lazy(() => import('./components/contact'));
+const Calendar = lazy(() => import('./components/calendar'));
 const NotFound = lazy(() => import('./components/404'));
 
 const Article = lazy(() => import('./components/article'));
@@ -25,7 +25,7 @@ class App extends React.Component {
       { path: '/services', component: props => (<Services {...props} />) },
       { path: '/single', component: props => (<Single {...props} />) },
       { path: '/portfolio', component: props => (<Portfolio {...props} />) },
-      { path: '/contact', component: props => (<Contact {...props} />) },
+      { path: '/calendar', component: props => (<Calendar {...props} />) },
       { path: '/:year/:month/:date-:title', component: props => (<Article {...props} />) },
       { component: props => (<NotFound {...props} />) },
     ].map((item, index) => <Route key={`route-${index}`} {...item} />);
