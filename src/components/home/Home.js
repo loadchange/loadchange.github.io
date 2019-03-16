@@ -27,6 +27,7 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(React.createFactory('div'))
   }
 
   render() {

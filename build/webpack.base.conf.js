@@ -14,7 +14,7 @@ module.exports = {
     publicPath: isDev ? '/' : 'dist/',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx', 'ts', 'tsx', '.scss']
   },
   module: {
     rules: [{
@@ -25,7 +25,7 @@ module.exports = {
         'sass-loader',
       ],
     }, {
-      test: /\.(js|jsx)$/,
+      test: /\.(js|jsx|ts|tsx)$/,
       use: ['babel-loader?cacheDirectory'],
       exclude: /node_modules/,
     }, {
