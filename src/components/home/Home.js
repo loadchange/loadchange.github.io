@@ -24,20 +24,15 @@ const GRID_LIST = [{
 }]
 
 class Home extends React.Component {
-
-  constructor(props) {
-    super(props);
-    console.log(React.createFactory('div'))
-  }
-
+  
   render() {
     return (
       <div className="home content">
         <div className="top-grids">
           <div className="section group">
             {
-              GRID_LIST.map(({ src, title, describe, url }) => (
-                <div className="grid_1_of_3 images_1_of_3 top_grid">
+              GRID_LIST.map(({ src, title, describe, url },idx) => (
+                <div className="grid_1_of_3 images_1_of_3 top_grid" key={idx}>
                   <div className="topgrid-desc">
                     <a href={url} target="_blank"><h3>{title}</h3></a>
                     <p>{describe}</p>
