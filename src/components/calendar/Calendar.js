@@ -81,31 +81,31 @@ class Calendar extends React.Component {
               </div>
               <table>
                 <thead>
-                <tr>
-                  {
-                    '一二三四五六日'.split('').map(s => (<th key={s}>{s}</th>))
-                  }
-                </tr>
+                  <tr>
+                    {
+                      '一二三四五六日'.split('').map(s => (<th key={s}>{s}</th>))
+                    }
+                  </tr>
                 </thead>
                 <tbody>
-                {
-                  calendar && calendar.map((week, i) => (
-                    <tr key={i}>
-                      {
-                        week.map((day, idx) => (
-                          <td
-                            key={idx}
-                            className={C({
-                              day,
-                              today: day && day.date === selectDay
-                            })}
-                            onClick={() => this.setState({ selectDay: day.date })}
-                          >{day && day.date}</td>
-                        ))
-                      }
-                    </tr>
-                  ))
-                }
+                  {
+                    calendar && calendar.map((week, i) => (
+                      <tr key={i}>
+                        {
+                          week.map((day, idx) => (
+                            <td
+                              key={idx}
+                              className={C({
+                                day,
+                                today: day && day.date === selectDay
+                              })}
+                              onClick={() => this.setState({ selectDay: day.date })}
+                            >{day && day.date}</td>
+                          ))
+                        }
+                      </tr>
+                    ))
+                  }
                 </tbody>
               </table>
             </div>
