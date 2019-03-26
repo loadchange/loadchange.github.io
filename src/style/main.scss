@@ -1001,20 +1001,43 @@ ul.simple-toggle li a:hover {
     margin-left: 5%;
 }
 
+.calendar-table .calendar-table-header {
+    padding: 20px 0;
+    font-size: 14px;
+
+    select {
+        margin-right: 12px;
+    }
+
+    em {
+        color: #D26C54;
+        font-weight: bold;
+        margin-right: 12px;
+    }
+
+    b {
+        color: #69B3CB;
+    }
+}
+
 .calendar-table {
+    max-width: 750px;
     padding: 10px;
+    margin: 0 auto;
     border: 2px solid #69B3CB;
 
     table {
         width: 100%;
+        max-width: 740px;
+        margin: 0 auto;
         border-collapse: inherit;
         border-top: 1px solid #69B3CB;
         user-select: none;
 
         thead {
             th {
-                padding: 3vw 0;
-                font-size: 2vw;
+                padding: 20px 0;
+                font-size: 18px;
                 font-weight: bold;
                 cursor: default;
             }
@@ -1027,13 +1050,13 @@ ul.simple-toggle li a:hover {
         }
 
         td {
-            line-height: 11vw;
+            padding: 5% 0;
             text-align: center;
             cursor: not-allowed;
             border: 2px solid transparent;
             border-radius: 3px;
-            font-size: 3vw;
-            border-top: 1px solid #c8cacc;
+            font-size: 20px;
+            border-top: 1px solid #758084;
 
             &.day {
                 cursor: pointer;
@@ -1045,9 +1068,24 @@ ul.simple-toggle li a:hover {
             }
 
             &.day:hover {
-                border-color: #D26C54;
+                background: #D26C54;
+                color: #fff;
             }
         }
+    }
+}
+
+.pick-todays-luck {
+    margin-top: 14px;
+
+    h5 {
+        font-size: 28px;
+        color: #69B3CB;
+    }
+
+    strong {
+        font-size: 18px;
+        color: #888;
     }
 }
 
