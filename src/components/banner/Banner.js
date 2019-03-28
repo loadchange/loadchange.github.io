@@ -9,13 +9,13 @@ import './style.scss'
 
 const IMG_LIST = [{
   src: Slide1,
-  url: 'https://s.click.taobao.com/t?e=m%3D2%26s%3Dtd5bhHrRXbUcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAvoCMRpdC9nbQolZFDdJ%2FzbERx%2FTr44bTnXSd%2BTFOdPh85TNKGbvbJjGqrEOt4MAbBmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy9E8FCJeumVVOABlk8WxvrvLNmFwzcjFAU%3D'
+  url: 'https://www.aliyun.com/acts/product-section-2019/new-users?userCode=kjqxfok3'
 }, {
   src: Slide2,
-  url: 'https://s.click.taobao.com/t?e=m%3D2%26s%3Dx85L9qadr00cQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAmwenyRkUxgTssFzRH299dzERx%2FTr44bTnXSd%2BTFOdPh85TNKGbvbJjGqrEOt4MAbBmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6uIOTs4KMj3yjpOyWSRdiSZDEm2YKA6YIrbIzrZDfgWtwGXLU4WXsy8CZuZoOOkzXFxfvOyje0ynomfkDJRs%2BhU%3D'
+  url: 'https://promotion.aliyun.com/ntms/act/enterprise-discount.html?userCode=kjqxfok3'
 }, {
   src: Slide3,
-  url: 'https://s.click.taobao.com/t?e=m%3D2%26s%3DWMe0Cw57d18cQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAmwenyRkUxgTRPRZn0hn1zvERx%2FTr44bTnXSd%2BTFOdPh85TNKGbvbJjGqrEOt4MAbBmIkXBqRClNTcEU%2BDykfuSM%2BhtH71aX6htm26afTqZhX2AelcDTwouII%2BH4AtnKmf9aAWiTxsBWI8xs9INDEPvGJe8N%2FwNpGw%3D%3D'
+  url: 'https://promotion.aliyun.com/ntms/act/qwbk.html?userCode=kjqxfok3'
 }];
 
 class Banner extends React.Component {
