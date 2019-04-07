@@ -1,18 +1,17 @@
 import React, { lazy, Suspense } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import C from 'classnames';
-import Loading from '../Loading'
+import Loading from '../Loading';
 
 const Banner = lazy(() => import('../banner'));
 
 @withRouter
 class Layout extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       openMenu: false
-    }
+    };
   }
 
   render() {
@@ -27,35 +26,49 @@ class Layout extends React.Component {
               <div className="top-nav">
                 <div className="top-header">
                   <div className="logo">
-                    <Link to="/"><h1>彦辅</h1></Link>
+                    <Link to="/">
+                      <h1>彦辅</h1>
+                    </Link>
                   </div>
                 </div>
                 <nav className="nav clearfix">
                   <div className="anchor-link" onClick={() => this.setState({ openMenu: !openMenu })} />
                   <ul className={C('simple-toggle', { open: openMenu })}>
-                    <li><Link to="/">首页</Link></li>
-                    <li><Link to="/about">关于</Link></li>
-                    <li><Link to="/services">服务</Link></li>
-                    <li className="logo">
-                      <Link to="/"><h1>彦辅</h1></Link>
+                    <li>
+                      <Link to="/">首页</Link>
                     </li>
-                    <li><Link to="/portfolio">组合</Link></li>
-                    <li><Link to="/single">职业</Link></li>
-                    <li><Link to="/calendar">黄历</Link></li>
+                    <li>
+                      <Link to="/exchange-rate">汇率</Link>
+                    </li>
+                    <li>
+                      <Link to="/services">服务</Link>
+                    </li>
+                    <li className="logo">
+                      <Link to="/">
+                        <h1>彦辅</h1>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/portfolio">组合</Link>
+                    </li>
+                    <li>
+                      <Link to="/single">职业</Link>
+                    </li>
+                    <li>
+                      <Link to="/calendar">黄历</Link>
+                    </li>
                   </ul>
                 </nav>
-                {
-                  location.pathname === '/' && (
-                    <Suspense fallback={<Loading />}><Banner /></Suspense>
-                  )
-                }
+                {location.pathname === '/' && (
+                  <Suspense fallback={<Loading />}>
+                    <Banner />
+                  </Suspense>
+                )}
               </div>
             </div>
           </div>
         </div>
-        <div className="wrap">
-          {this.props.children}
-        </div>
+        <div className="wrap">{this.props.children}</div>
         <div className="footer">
           <div className="wrap">
             <div className="copy-right">
@@ -65,7 +78,7 @@ class Layout extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

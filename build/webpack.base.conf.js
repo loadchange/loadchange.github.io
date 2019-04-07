@@ -26,8 +26,8 @@ module.exports = {
       ],
     }, {
       test: /\.(js|jsx|ts|tsx)$/,
-      use: ['babel-loader?cacheDirectory'],
-      exclude: /node_modules/,
+        include: [resolve('src')],
+        use: ['babel-loader'],
     }, {
       test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
       loader: 'url-loader',

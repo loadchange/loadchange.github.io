@@ -6,9 +6,10 @@ import Layout from './components/layout'
 
 import './style/main.scss'
 
+import ExchangeRate from './components/exchange-rate'
 
 const Home = lazy(() => import('./components/home'));
-const About = lazy(() => import('./components/about'));
+// const ExchangeRate = lazy(() => import('./components/exchange-rate/ExchangeRate.jsx'));
 const Services = lazy(() => import('./components/services'));
 const Single = lazy(() => import('./components/single'));
 const Portfolio = lazy(() => import('./components/portfolio'));
@@ -21,7 +22,7 @@ class App extends React.Component {
   get route() {
     return [
       { path: '/', exact: true, component: props => (<Home {...props} />) },
-      { path: '/about', component: props => (<About {...props} />) },
+      { path: '/exchange-rate', component: props => (<ExchangeRate {...props} />) },
       { path: '/services', component: props => (<Services {...props} />) },
       { path: '/single', component: props => (<Single {...props} />) },
       { path: '/portfolio', component: props => (<Portfolio {...props} />) },

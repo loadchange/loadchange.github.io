@@ -1,8 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import ContentBottom from '../content-bottom';
 
-class About extends React.Component {
+export interface Props {}
 
+class ExchangeRate extends React.Component<Props, object> {
   render() {
     return (
       <div className="about content">
@@ -30,8 +31,8 @@ class About extends React.Component {
         </div>
         <ContentBottom />
       </div>
-    )
+    );
   }
 }
 
-export default About;
+export default ExchangeRate;
