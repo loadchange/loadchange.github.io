@@ -14,7 +14,7 @@ module.exports = {
     publicPath: isDev ? '/' : 'dist/',
   },
   resolve: {
-    extensions: ['.js', '.jsx', 'ts', 'tsx', '.scss']
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss']
   },
   module: {
     rules: [{
