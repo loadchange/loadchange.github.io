@@ -6,10 +6,8 @@ import Layout from './components/layout'
 
 import './style/main.scss'
 
-import ExchangeRate from './components/exchange-rate'
-
 const Home = lazy(() => import('./components/home'));
-// const ExchangeRate = lazy(() => import('./components/exchange-rate/ExchangeRate.jsx'));
+const ExchangeRate = lazy(() => import('./components/exchange-rate'));
 const Services = lazy(() => import('./components/services'));
 const Single = lazy(() => import('./components/single'));
 const Portfolio = lazy(() => import('./components/portfolio'));
