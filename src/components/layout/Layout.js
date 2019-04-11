@@ -38,7 +38,7 @@ class Layout extends React.Component {
                       <Link to="/">首页</Link>
                     </li>
                     <li>
-                      <Link to="/exchange-rate">汇率</Link>
+                      <Link to="/yq">云栖</Link>
                     </li>
                     <li>
                       <Link to="/services">服务</Link>
