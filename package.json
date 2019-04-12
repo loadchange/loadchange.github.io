@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js --open",
-    "build": "node build/steal.aliyum.article.js && cross-env NODE_ENV=production webpack --profile --display-modules --config build/webpack.prod.conf.js && node build/generate.article.conf.js",
+    "build": "cross-env NODE_ENV=production webpack --profile --display-modules --config build/webpack.prod.conf.js && node build/generate.article.conf.js && node build/steal.aliyum.article.js",
     "analyzer": "cross-env NODE_ENV=production webpack --config build/webpack.analyzer.conf.js"
   },
   "author": "yanmin.wang@ele.me",
