@@ -57,7 +57,7 @@
     "github-markdown-css": "^3.0.1",
     "jsdom": "^15.0.0",
     "kalendar": "^1.4.2",
-    "marked": "^0.6.1",
+    "marked": "^1.1.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.4.0",
     "react": "^16.8.5",
